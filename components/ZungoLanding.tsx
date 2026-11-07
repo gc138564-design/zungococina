@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { zungoCss, zungoBody, zungoScript } from "@/lib/zungoContent";
 
 const heroCss = `
-.hero{position:relative;overflow:hidden;padding:90px 0 100px;background:radial-gradient(1200px 600px at 80% 30%,#5a0a3f 0%,transparent 55%),radial-gradient(900px 500px at 10% 80%,#1a3a12 0%,transparent 60%),linear-gradient(135deg,#050505 0%,#0d0a0e 45%,#1a0c17 100%)}
+.hero{position:relative;overflow:hidden;padding:90px 0 100px;background:radial-gradient(900px 500px at 10% 80%,#1a3a12 0%,transparent 60%),linear-gradient(135deg,#050505 0%,#0d0a0e 45%,#1a0c17 100%)}
 .hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(ellipse at center,black 40%,transparent 85%);pointer-events:none}
 .hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-220px;top:-60px;background:radial-gradient(circle,#d00091 0%,#d00091 15%,transparent 70%);filter:blur(60px);opacity:.35;pointer-events:none}
 .hero-image img{max-height:700px !important;box-shadow:0 30px 100px #000c,0 0 80px #d0009122}
@@ -21,8 +21,8 @@ const heroCss = `
 .cart-overlay,.cart-panel{z-index:80 !important}
 
 header{position:fixed !important;top:0;left:0;right:0;z-index:50}
-main{padding-top:76px}
-@media (max-width: 800px){main{padding-top:64px}}
+main{padding-top:0}
+@media (max-width: 800px){main{padding-top:0}}
 
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
@@ -95,6 +95,21 @@ main{padding-top:76px}
 .kicker::before{content:"";display:inline-block;width:12px;height:12px;margin-right:8px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23b5ed35'%3E%3Cpath d='M12 2l2.4 7.2H22l-6 4.4 2.3 7.2L12 16.4 5.7 20.8 8 13.6 2 9.2h7.6z'/%3E%3C/svg%3E") no-repeat center/contain;vertical-align:middle}
 
 .cart-pill{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.brand-logo{filter:drop-shadow(0 2px 10px #000) !important}
+.hero{background:url('/images/hero-bg.png') center/cover no-repeat !important;padding-top:90px !important;padding-bottom:0 !important;min-height:100vh !important;display:flex !important;align-items:flex-start !important}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,9,9,.45) 0%,rgba(9,9,9,.78) 100%);z-index:0;pointer-events:none}
+.hero > *{position:relative;z-index:1}
+.hero-grid{grid-template-columns:1fr !important;gap:20px !important;text-align:left;max-width:1200px !important;margin:0 auto !important;width:100% !important}
+.hero h1{font-size:clamp(3.2rem,9vw,5.2rem) !important;margin:0 0 16px !important;line-height:.95 !important;text-shadow:0 4px 24px #000,0 2px 8px #0008 !important}
+.hero-copy{margin:0 0 20px !important;max-width:680px;text-align:left !important}
+.hero-buttons{justify-content:flex-start !important}
+.hero-note{justify-content:flex-start !important}
+.hero-image{margin:0 auto !important;max-width:100% !important}
+.hero-image img{max-height:640px !important;width:100% !important;object-fit:cover !important}
+.navlinks{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;width:100vw !important;height:100vh !important;background:#090909f2;backdrop-filter:blur(12px);z-index:60 !important;display:flex !important;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:24px;overflow:auto;opacity:0;pointer-events:none;transform:scale(.98);transition:opacity .2s ease,transform .2s ease}
+.navlinks.open{opacity:1 !important;pointer-events:auto !important;transform:scale(1) !important}
+.menu-toggle{display:inline-flex !important}
+.menu-close{display:flex !important}
 .cart-pill svg{flex-shrink:0}
 .toast{bottom:96px;max-width:90vw;text-align:center;line-height:1.4}
 .add-btn{width:100%;margin-top:12px;margin-bottom:8px}
